@@ -1,0 +1,26 @@
+package templ
+
+// Lesson5: components can nest inside other components, and accept other
+// components as children via a block.
+templ Lesson5() {
+	<section>
+		<h1>Lesson 5: Composition</h1>
+		<p>Build a page from small, reusable pieces.</p>
+		@Card("First card") {
+			<p>This content is passed in as a child component.</p>
+		}
+		@Card("Second card") {
+			<ul>
+				<li>Item A</li>
+				<li>Item B</li>
+			</ul>
+		}
+	</section>
+}
+
+templ Card(title string) {
+	<div class="card">
+		<div class="card-title">{ title }</div>
+		<div class="card-body">{ children... }</div>
+	</div>
+}

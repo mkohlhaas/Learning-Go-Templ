@@ -1,0 +1,20 @@
+package templ
+
+// Home renders the course index listing every lesson.
+templ Home(lessons []Lesson) {
+	<section>
+		<h1>Go • templ Lessons</h1>
+		<p>
+			Learn server-side HTML components with
+			<a href="https://templ.guide" target="_blank">templ</a>.
+			Components are type-checked Go functions — no separate template files.
+		</p>
+		<ul class="lesson-list">
+			for _, l := range lessons {
+				<li>
+					<a href={ l.Path }>{ l.Title }</a> — { l.Desc }
+				</li>
+			}
+		</ul>
+	</section>
+}

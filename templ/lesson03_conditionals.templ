@@ -1,0 +1,18 @@
+package templ
+
+// Lesson3: conditionals with if / else.
+templ Lesson3(loggedIn bool, plan string) {
+	<section>
+		<h1>Lesson 3: Conditionals</h1>
+		if loggedIn {
+			<p>Welcome back! You are on the <strong>{ plan }</strong> plan.</p>
+			@Badge(plan)
+		} else {
+			<p>Please <a href="/login">log in</a> to continue.</p>
+		}
+	</section>
+}
+
+templ Badge(plan string) {
+	<span class="badge">{ plan }</span>
+}

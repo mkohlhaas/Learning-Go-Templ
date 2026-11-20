@@ -1,0 +1,42 @@
+package templ
+
+// Layout is the shared page shell. Every lesson renders inside it so the
+// course looks consistent and to demonstrate component composition. The
+// lesson content is supplied through the template context children
+// (templ.WithChildren), which Layout renders with { children... }.
+templ Layout(title string, useHTMX bool) {
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{ title } — Go Templ Lessons</title>
+		<link rel="stylesheet" href="/static/style.css" />
+		if useHTMX {
+			<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+		}
+	</head>
+	<body>
+		<header>
+			<nav>
+				<a href="/">Home</a>
+				<span class="sep">·</span>
+				<a href="/lesson1">1 · First component</a>
+				<a href="/lesson2">2 · Props</a>
+				<a href="/lesson3">3 · Conditionals</a>
+				<a href="/lesson4">4 · Loops</a>
+				<a href="/lesson5">5 · Composition</a>
+				<a href="/lesson6">6 · Serving over HTTP</a>
+				<a href="/lesson7">7 · Forms</a>
+				<a href="/lesson8">8 · templ + HTMX</a>
+			</nav>
+		</header>
+
+		<main>{ children... }</main>
+
+		<footer>
+			<p>Go • templ • HTMX lessons</p>
+		</footer>
+	</body>
+	</html>
+}

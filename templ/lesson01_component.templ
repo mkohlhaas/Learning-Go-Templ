@@ -1,0 +1,16 @@
+package templ
+
+// Lesson1: your first component. Just a Go function returning HTML.
+templ Lesson1() {
+	<section>
+		<h1>Lesson 1: Your First Component</h1>
+		<p>
+			A templ component is a Go function that returns HTML. There are no
+			separate template files and no string concatenation.
+		</p>
+		<div class="callout">
+			<strong>Output is type-checked at compile time.</strong>
+			Typos in element names or attributes are caught by <code>go build</code>.
+		</div>
+	</section>
+}

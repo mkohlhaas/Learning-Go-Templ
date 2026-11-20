@@ -1,0 +1,15 @@
+package templ
+
+// Lesson4: loops with for over a slice.
+templ Lesson4() {
+	<section>
+		<h1>Lesson 4: Loops</h1>
+		<p>Render a list by looping over a Go slice with <code>for</code>.</p>
+		<ul class="todo">
+			for item := range Lesson4Items() {
+				<li>{ item }</li>
+			}
+		</ul>
+		<p>Total items: { len(Lesson4Items()) }</p>
+	</section>
+}

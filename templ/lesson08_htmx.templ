@@ -1,0 +1,29 @@
+package templ
+
+// Lesson8: templ + HTMX. The server returns HTML fragments that HTMX swaps
+// into the page — no full-page reloads.
+templ Lesson8(count int) {
+	<section>
+		<h1>Lesson 8: templ + HTMX</h1>
+		<p>
+			templ generates the HTML fragments; HTMX fetches them and swaps them
+			into the DOM.
+		</p>
+		<div class="htmx-demo">
+			<button
+				hx-post="/lesson8/click"
+				hx-target="#counter"
+				hx-swap="innerHTML"
+				class="btn">
+				Click me
+			</button>
+			<p>Count: <span id="counter">{ count }</span></p>
+		</div>
+	</section>
+}
+
+// CounterFragment is the small HTML snippet returned to HTMX on each click.
+// hx-swap-oob updates the counter without touching the button.
+templ CounterFragment(count int) {
+	<span id="counter" hx-swap-oob="true">{ count }</span>
+}

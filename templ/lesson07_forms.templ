@@ -1,0 +1,20 @@
+package templ
+
+// Lesson7: a form that posts back to the same handler and re-renders.
+templ Lesson7(name string, submitted bool) {
+	<section>
+		<h1>Lesson 7: Forms</h1>
+		if submitted {
+			<p class="success">Thanks for submitting, <strong>{ name }</strong>!</p>
+			<p><a href="/lesson7">Submit another</a></p>
+		} else {
+			<form method="post" action="/lesson7">
+				<label>
+					Name:
+					<input type="text" name="name" value={ name } />
+				</label>
+				<button type="submit" class="btn">Submit</button>
+			</form>
+		}
+	</section>
+}

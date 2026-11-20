@@ -1,0 +1,13 @@
+package templ
+
+// Lesson6: rendering a component from a net/http handler.
+templ Lesson6(message string) {
+	<section>
+		<h1>Lesson 6: Serving Over HTTP</h1>
+		<p>{ message }</p>
+		<p>
+			The handler calls <code>component.Render(r.Context(), w)</code> to write
+			HTML to the response.
+		</p>
+	</section>
+}
